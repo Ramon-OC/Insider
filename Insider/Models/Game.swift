@@ -19,24 +19,16 @@ class Game {
     }()
 
     
-    
-    func distributionOfRoles(playerNames: [NameInputItem]){
+    func distributionOfRoles(){
         
-        for playerName in playerNames {
-            players.append(Player(name: playerName.name, role: "COMMONS"))
-        }
-        
-        var noPlayers = players.count
-
-        var insiderPlayer = Int.random(in: 0..<noPlayers)
+        let noPlayers = players.count
+        let insiderPlayer = Int.random(in: 0..<noPlayers)
         var masterPlayer = Int.random(in: 0..<noPlayers)
 
         while masterPlayer == insiderPlayer {
             masterPlayer = Int.random(in: 0..<noPlayers)
         }
 
-        print(insiderPlayer)
-        print(masterPlayer)
         players[insiderPlayer].role = "INSIDER"
         players[masterPlayer].role = "MASTER"
         

@@ -73,18 +73,20 @@ struct PlayersInputView: View {
                     
                     
                     if noPlayers >= 4 {
-                        NavigationLink(
-                            destination: UnlockView().navigationBarHidden(true),
-                            label: {
-                                Text("Looks great!")
-                                    .font(.custom("Helvetica", size: 15))
-                                    .frame(minWidth: 100, maxWidth: 200)
-                                    .padding()
-                                    .background(Color("InsiderRed"))
-                                    .foregroundStyle(.white)
-                                    .cornerRadius(10)
-                            })
+                      NavigationLink(destination: {
+                          Game.shared.distributionOfRoles()
+                        return UnlockView().navigationBarHidden(true)
+                      }) {
+                        Text("Looks great!")
+                          .font(.custom("Helvetica", size: 15))
+                          .frame(minWidth: 100, maxWidth: 200)
+                          .padding()
+                          .background(Color("InsiderRed"))
+                          .foregroundStyle(.white)
+                          .cornerRadius(10)
+                      }
                     }
+
                     
                 }
                 .rotation3DEffect(Angle(degrees: showNewTask ? 5 : 0), axis: (x: 1, y: 0, z: 0))

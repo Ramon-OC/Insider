@@ -10,7 +10,7 @@ struct AddNewPlayerView: View {
     
     @Binding var isShow: Bool
     @State var name: String
-    @Binding var a: Int
+    @Binding var a: Int // para saber la cantidad de jugaodres (por borrar)
     @State var isEditing = false
     @FocusState private var showkeyboard: Bool
 
@@ -51,7 +51,7 @@ struct AddNewPlayerView: View {
                     }
                     
                     self.isShow = false
-                    self.addTask(name: self.name)
+                    self.addPlayer(name: self.name.trimmingCharacters(in: .whitespacesAndNewlines))
                     
                 }) {
                     Text("Looks great!")
@@ -71,11 +71,17 @@ struct AddNewPlayerView: View {
             .shadow(radius: 10)
             .padding()
         }
+        //.containerRelativeFrame([.horizontal, .vertical])
         .padding()
+        .background {
+            Color.black
+                .ignoresSafeArea()
+        }
         
     }
     
-    private func addTask(name: String) {
+    
+    private func addPlayer(name: String) {
         let newItem = NameInputItem(name: name)
         nameListItems.append(newItem)
         Game.shared.players.append(Player(name: name, role: "COMMONS"))

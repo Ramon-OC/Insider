@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct InsiderApp: App {
     var body: some Scene {
-        var game = Game()
 
         WindowGroup {
             ContentView()
