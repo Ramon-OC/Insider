@@ -77,7 +77,7 @@ struct PlayersCardView: View {
 }
 
 #Preview("Insider"){
-    PlayersCardView(actualPlayer: players[0])
+    PlayersCardView(actualPlayer: testPlayers[0])
 }
 
 

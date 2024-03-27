@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct Player: Identifiable {
-    var id = UUID()
+class Player {
     var name: String = ""
-    var role: String
+    var role: String = ""
+    
+    init(name: String, role: String) {
+          self.name = name
+          self.role = role
+      }
 }
 
-let players = [Player(name: "Ramón", role: "INSIDER")]
+let testPlayers = [Player(name: "José", role: "INSIDER"),
+                   Player(name: "Ramón", role: "MASTER"),
+                   Player(name: "Ortiz", role: "COMMONS"),
+                   Player(name: "Castañeda", role: "COMMONS")]
+

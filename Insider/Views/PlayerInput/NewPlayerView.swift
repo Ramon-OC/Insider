@@ -72,8 +72,8 @@ struct NewPlayerView: View {
     }
     
     private func addTask(name: String) {
-        let newItem = ToDoItem(name: name)
-        todoItems.append(newItem)
+        let newItem = NameInputItem(name: name)
+        nameListItems.append(newItem)
         a += 1
     }
 }

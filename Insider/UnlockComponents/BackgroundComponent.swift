@@ -25,11 +25,7 @@ public struct BackgroundComponent: View {
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
         }
-        .onAppear {
-            withAnimation(.linear(duration: 3).repeatForever(autoreverses: true)) {
-                hueRotation.toggle()
-            }
-        }
+       
     }
 
 }
