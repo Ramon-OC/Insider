@@ -6,12 +6,14 @@
 //
 import SwiftUI
 
-struct NewPlayerView: View {
+struct AddNewPlayerView: View {
+    
     @Binding var isShow: Bool
     @State var name: String
     @Binding var a: Int
     @State var isEditing = false
-    @FocusState var showkeyboard : Bool
+    @FocusState private var showkeyboard: Bool
+
 
     var body: some View {
         VStack {
@@ -33,6 +35,7 @@ struct NewPlayerView: View {
                 TextField("Write the nickname", text: $name, onEditingChanged: { (editingChanged) in
                     self.isEditing = editingChanged
                 })
+                .focused($showkeyboard)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
@@ -69,15 +72,17 @@ struct NewPlayerView: View {
             .padding()
         }
         .padding()
+        
     }
     
     private func addTask(name: String) {
         let newItem = NameInputItem(name: name)
         nameListItems.append(newItem)
+        Game.shared.players.append(Player(name: name, role: "COMMONS"))
         a += 1
     }
 }
 
 #Preview(){
-    NewPlayerView(isShow: .constant(true), name: "", a: .constant(1))
+    AddNewPlayerView(isShow: .constant(true), name: "", a: .constant(1))
 }

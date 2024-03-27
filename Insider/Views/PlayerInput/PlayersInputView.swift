@@ -21,6 +21,11 @@ struct PlayersInputView: View {
     @State private var showNewTask = false
     @State private var showNewButton = false
     
+    @State private var showMainView = false
+    @State private var goToUnlockView = false
+
+
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -66,18 +71,18 @@ struct PlayersInputView: View {
                     .background(Color.black)
                     .listStyle(.plain)
                     
-                    // Game.shared.distributionOfRoles(playerNames: todoItems)
                     
                     if noPlayers >= 4 {
-                        
                         NavigationLink(
-                            destination: UnlockView(players: testPlayers).navigationBarHidden(true),
+                            destination: UnlockView().navigationBarHidden(true),
                             label: {
-                                Text("Start the Game")
-                                    .font(.custom("Helvetica", size: 17))
-                                    .foregroundColor(.white)
-                                
-                                
+                                Text("Looks great!")
+                                    .font(.custom("Helvetica", size: 15))
+                                    .frame(minWidth: 100, maxWidth: 200)
+                                    .padding()
+                                    .background(Color("InsiderRed"))
+                                    .foregroundStyle(.white)
+                                    .cornerRadius(10)
                             })
                     }
                     
@@ -99,7 +104,7 @@ struct PlayersInputView: View {
                             self.showNewTask = false
                         }
                     
-                    NewPlayerView(isShow: $showNewTask, name: "", a: $noPlayers)
+                    AddNewPlayerView(isShow: $showNewTask, name: "", a: $noPlayers)
                         .transition(.move(edge: .bottom))
                         .animation(.interpolatingSpring(stiffness: 200.0, damping: 25.0, initialVelocity: 10.0), value: showNewTask)
                 }
@@ -112,6 +117,7 @@ struct PlayersInputView: View {
     
     private func deleteTask(at offsets: IndexSet) {
         nameListItems.remove(atOffsets: offsets)
+        Game.shared.players.remove(atOffsets: offsets)
         noPlayers += -1
     }
 }

@@ -17,7 +17,7 @@ struct UnlockView: View {
     @State private var isLocked = true
     @State private var isLoading = false
     
-    var players: [Player]
+    var players: [Player] = Game.shared.players
     @State var actualPlayer: Int = 0
     
 
