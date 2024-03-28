@@ -11,26 +11,29 @@ class Game {
     
     var players: [Player] = []
     var wordIndex: Int = 0
+    
     var noPlayers: Int = 0
+    var masterIndex : Int = 0
+    var insiderIndex : Int = 0
     
     static var shared: Game = {
-            let instance = Game()
-            return instance
+        let instance = Game()
+        return instance
     }()
 
     
     func distributionOfRoles(){
         
-        let noPlayers = players.count
-        let insiderPlayer = Int.random(in: 0..<noPlayers)
-        var masterPlayer = Int.random(in: 0..<noPlayers)
+        self.noPlayers = players.count
+        self.insiderIndex = Int.random(in: 0..<noPlayers)
+        self.masterIndex = Int.random(in: 0..<noPlayers)
 
-        while masterPlayer == insiderPlayer {
-            masterPlayer = Int.random(in: 0..<noPlayers)
+        while masterIndex == insiderIndex {
+            masterIndex = Int.random(in: 0..<noPlayers)
         }
 
-        players[insiderPlayer].role = "INSIDER"
-        players[masterPlayer].role = "MASTER"
+        players[insiderIndex].role = "INSIDER"
+        players[masterIndex].role = "MASTER"
         
         for player in players {
             print(player.name+" "+player.role)

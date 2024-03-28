@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeScreenView: View {
+    
+    @State private var isButtonVisible = false
+
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
@@ -17,36 +20,50 @@ struct WelcomeScreenView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.black)
                     .padding(.top, 70)
-
-                    NavigationLink(
-                        destination: PlayersInputView().navigationBarHidden(true),
-                        label: {
-                            Image("MainLogo")
-                                   .resizable()
-                                   .scaledToFit()
-                                   .frame(width: 200, height: 250)
-                            
+                
+                NavigationLink(
+                    destination: PlayersInputView().navigationBarHidden(true),
+                    label: {
+                        Image("MainLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 250)
+                        
                     })
-                    
-                    Text("INSIDER")
-                        .fontWeight(.heavy)
-                        .font(.custom("Helvetica", size: 60))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.black)
-                    
-                    HStack {
+                
+                Text("INSIDER")
+                    .fontWeight(.heavy)
+                    .font(.custom("Helvetica", size: 60))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
+                                
+                HStack {
+                    if(isButtonVisible){
                         Text("New around here? ")
                             .foregroundColor(Color(.white))
-                        Text("Go to rules")
-                            .foregroundColor(Color(.black))
-                    }
-                    .padding(.top, 50)
 
+                        NavigationLink(
+                            destination: RulesView().navigationBarHidden(false),
+                            label: {
+                                Text("Go to rules")
+                                    .foregroundColor(Color(.black))
+
+                            }
+                        )
+                    }
                 }
-            
+                
+                .padding(.top, 50)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            isButtonVisible = true
+                        }
+                    }
+                }
+            }
             .containerRelativeFrame([.horizontal, .vertical])
             .background(Color("InsiderRed"))
-
         }
     }
 }

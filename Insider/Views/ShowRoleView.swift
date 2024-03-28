@@ -28,7 +28,7 @@ struct UnlockView: View {
                             .font(.custom("Helvetica", size: 60))
                             .foregroundColor( .white)
                         
-                        Text("As you swipe down the bottom tab, your role in the game is revealed. Remember it discreetly, hide the information, and then pass the phone to the player indicated on the screen.")
+                        Text("As you swipe right the slider, your role in the game is revealed. Remember it and hide the information, then pass the phone to the shown name player on screen")
                             .padding()
                             .multilineTextAlignment(.leading)
                             .font(.custom("Helvetica", size: 20))

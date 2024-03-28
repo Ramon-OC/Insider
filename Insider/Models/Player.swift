@@ -17,8 +17,8 @@ class Player {
       }
 }
 
-let testPlayers = [Player(name: "José", role: "MASTER"),
-                   Player(name: "Ramón", role: "INSIDER"),
-                   Player(name: "Ortiz", role: "COMMONS"),
-                   Player(name: "Castañeda", role: "COMMONS")]
+let testPlayers = [Player(name: "Player One", role: "MASTER"),
+                   Player(name: "Player Two", role: "INSIDER"),
+                   Player(name: "Player Three", role: "COMMONS"),
+                   Player(name: "Player Four", role: "COMMONS")]
 
