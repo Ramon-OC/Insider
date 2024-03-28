@@ -124,6 +124,8 @@ struct UnlockView: View {
             }
             .containerRelativeFrame([.horizontal, .vertical])
             .background(isLocked ? Color.black : Color.white)
+            // This fix the backgorund problem
+            .animation(.easeInOut(duration: 0.5), value: isLocked)
             .transition(.opacity)
             .zIndex(1) /// here!
         }

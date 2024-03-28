@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TripCardView: View {
+struct RuleCardView: View {
     let imageName: String
     let phaseNumber: String
     let phaseTitle : String
@@ -24,6 +24,7 @@ struct TripCardView: View {
             Text(self.phaseTitle)
                 .padding()
                 .font(.custom("Helvetica", size: 20))
+                .transition(.opacity)
             
             Text(self.intruction)
                 .padding(.all)
@@ -44,6 +45,7 @@ struct TripCardView: View {
     }
 }
 
-#Preview {
-    TripCardView(imageName: gameRules[0].image, phaseNumber: gameRules[0].phaseNumber, phaseTitle: gameRules[0].phaseTitle, intruction: gameRules[0].intruction)
+#Preview("Phase One Rule Card"){
+    RuleCardView(imageName: gameRules[0].image, phaseNumber: gameRules[0].phaseNumber, phaseTitle: gameRules[0].phaseTitle, intruction: gameRules[0].intruction)
 }
+

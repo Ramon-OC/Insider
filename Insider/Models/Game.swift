@@ -13,8 +13,8 @@ class Game {
     var wordIndex: Int = 0
     
     var noPlayers: Int = 0
-    var masterIndex : Int = 0
-    var insiderIndex : Int = 0
+    var masterIndex : Int = -1
+    var insiderIndex : Int = -1
     
     static var shared: Game = {
         let instance = Game()
@@ -30,6 +30,11 @@ class Game {
 
         while masterIndex == insiderIndex {
             masterIndex = Int.random(in: 0..<noPlayers)
+        }
+        
+        // Try to improve this by only one call of distributionOfRoles() in view
+        for player in players {
+            player.role = "COMMONS"
         }
 
         players[insiderIndex].role = "INSIDER"

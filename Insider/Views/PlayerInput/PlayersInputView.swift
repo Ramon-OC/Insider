@@ -74,7 +74,7 @@ struct PlayersInputView: View {
                     
                     if noPlayers >= 4 {
                       NavigationLink(destination: {
-                          Game.shared.distributionOfRoles()
+                        Game.shared.distributionOfRoles()
                         return UnlockView().navigationBarHidden(true)
                       }) {
                         Text("Looks great!")
