@@ -8,31 +8,27 @@
 import SwiftUI
 
 struct ShowThemeView: View {
-
     
-    let words: [(String,String)]
-    let actualWordIndex: Int
-        
+        var masterName : String = Game.shared.getMasterPlayer().name
+        var words: [(String,String)] = testCards[0].words
+        var actualWordIndex: Int = Game.shared.wordIndex
+
         @State private var isButtonVisible = false
         @State private var isLocked = true
         @State private var isLoading = false
-        
-        var players: [Player] = Game.shared.players
-        @State var actualPlayer: Int = 0
-        
+                
         var body: some View {
             NavigationView {
                 VStack(spacing: 80) {
                     if(isLocked){
-                        
                         VStack(alignment: .leading){
-                            Text("Hello,\n"+players[actualPlayer].name+"!")
+                            Text("Hello,\n"+masterName+"!")
                                 .padding()
                                 .multilineTextAlignment(.leading)
                                 .font(.custom("Helvetica", size: 60))
                                 .foregroundColor( .white)
                             
-                            Text("As you swipe down the bottom tab, your role in the game is revealed. Remember it discreetly, hide the information, and then pass the phone to the player indicated on the screen.")
+                            Text("As a master role in the game, when you slide the bar you will see the game word highlighted in red. When you finish, everyone closes their eyes (including you) and you leave your cell phone on the table. You will give the instruction to the insider to open his eyes and everyone counts from five to cero. The master will hide the word")
                                 .padding()
                                 .multilineTextAlignment(.leading)
                                 .font(.custom("Helvetica", size: 20))
@@ -53,14 +49,14 @@ struct ShowThemeView: View {
                             
                         }
                         
-                    }else{ // Show role elements
+                    }else{ // Show game word
                         VStack{
                             HStack{
                                 Text("Word of the round: ")
-                                    .font(.custom("Helvetica", size: 25))
+                                    .font(.custom("Helvetica", size: 30))
                                 Text(String(actualWordIndex))
                                     .foregroundColor(.red)
-                                    .font(.custom("Helvetica", size: 25))
+                                    .font(.custom("Helvetica", size: 30))
                             }
                             .padding(.all)
                             
@@ -81,7 +77,7 @@ struct ShowThemeView: View {
                                             Text(words[index].1)
                                                 .font(.system(size: 20, weight: .heavy, design: .default))
                                                 .foregroundColor(actualWordIndex == (index + 1) ? .red : .black)
-                                                .frame(maxWidth: .infinity, alignment: .trailing) 
+                                                .frame(maxWidth: .infinity, alignment: .trailing)
                                         }
                                         .padding(.trailing, 10)
 
@@ -107,7 +103,6 @@ struct ShowThemeView: View {
         }
     }
 
-
 #Preview("LockScrean"){
-    ShowThemeView(words: testCards[0].words, actualWordIndex: 4, players: testPlayers)
+    ShowThemeView(masterName:"Master Player",actualWordIndex:  1)
 }

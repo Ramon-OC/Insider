@@ -17,9 +17,8 @@ public struct BackgroundComponent: View {
                         endPoint: .trailing
                     )
                 )
-                //.hueRotation(.degrees(hueRotation ? 20 : -20))
 
-            Text("Slide to reveal role")
+            Text("Slide to reveal")
                 .font(.footnote)
                 .bold()
                 .foregroundColor(.white)

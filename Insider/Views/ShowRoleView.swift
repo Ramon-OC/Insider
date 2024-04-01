@@ -89,12 +89,14 @@ struct UnlockView: View {
                         }
                    
                         // Indication and hide button
-                        VStack {
-                            if isButtonVisible {
+                        ZStack {
+                            if isButtonVisible && (actualPlayer != players.count-1) {
                                 Button(action: {
                                     isLocked = true
                                     isButtonVisible = false
                                     actualPlayer += 1
+                                    
+                                    
                                 }) {
                                     Text("Got it, hide it")
                                         .font(.system(size: 20, weight: .heavy))
@@ -107,6 +109,19 @@ struct UnlockView: View {
                                 }
                                 .transition(.opacity)
                                 .padding(.bottom)
+                            } else if actualPlayer == players.count - 1 { // How to
+                                NavigationLink(
+                                    destination: ShowThemeView().navigationBarHidden(true),
+                                    label: {
+                                        Text("Go to phase two "+String(Game.shared.wordIndex))
+                                            .font(.system(size: 20, weight: .heavy))
+                                            .frame(minWidth: 0, maxWidth: 240)
+                                            .padding()
+                                            .background(Color.black)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
+                                    }
+                                )
                             }
                         }
                         .onAppear {
@@ -116,10 +131,7 @@ struct UnlockView: View {
                                 }
                             }
                         }
-                        
                     }
-            
-                    
                 }
             }
             .containerRelativeFrame([.horizontal, .vertical])

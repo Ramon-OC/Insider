@@ -71,20 +71,19 @@ struct PlayersInputView: View {
                     .background(Color.black)
                     .listStyle(.plain)
                     
-                    
                     if noPlayers >= 4 {
-                      NavigationLink(destination: {
+                        NavigationLink(destination: {
                         Game.shared.distributionOfRoles()
                         return UnlockView().navigationBarHidden(true)
-                      }) {
-                        Text("Looks great!")
-                          .font(.custom("Helvetica", size: 15))
-                          .frame(minWidth: 100, maxWidth: 200)
-                          .padding()
-                          .background(Color("InsiderRed"))
-                          .foregroundStyle(.white)
-                          .cornerRadius(10)
-                      }
+                        }) {
+                            Text("Looks great!")
+                                .font(.custom("Helvetica", size: 15))
+                                .frame(minWidth: 100, maxWidth: 200)
+                                .padding()
+                                .background(Color("InsiderRed"))
+                                .foregroundStyle(.white)
+                                .cornerRadius(10)
+                            }
                     }
 
                     
