@@ -155,8 +155,8 @@ struct ToDoListRow: View {
         VStack {
             
             Text(self.todoItem.name)
+                .font(.custom("Helvetica", size: 40))
                 .foregroundColor(.white)
-                .font(.system(size: 40, design: .rounded))
                 .bold()
                 .animation(.default)
             

@@ -10,9 +10,9 @@ import SwiftUI
 struct ShowThemeView: View {
     
         var masterName : String = Game.shared.getMasterPlayer().name
-        var words: [(String,String)] = testCards[0].words
+        
+        var words: [(String,String)] = gameCards[Game.shared.wordCardIndex].words
         var actualWordIndex: Int = Game.shared.wordIndex
-
         @State private var isButtonVisible = false
         @State private var isLocked = true
         @State private var isLoading = false
@@ -91,6 +91,24 @@ struct ShowThemeView: View {
                             .cornerRadius(10)
                             .frame(minWidth: 300, idealWidth: 300, maxWidth: 110, minHeight: 110)
                             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            
+                            // Add move to next face button
+                            Button(action: {
+                                // Send SMSs to all players!
+                                
+                            }) {
+                                Text("Got it, send it to Insider")
+                                    .font(.system(size: 20, weight: .heavy))
+                                    .frame(minWidth: 0, maxWidth: 240)
+                                    .padding()
+                                    .background(Color.black)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                                
+                            }
+                            .transition(.opacity)
+                            .padding()
+                            
                         }
                         
                     }
@@ -104,5 +122,5 @@ struct ShowThemeView: View {
     }
 
 #Preview("LockScrean"){
-    ShowThemeView(masterName:"Master Player",actualWordIndex:  1)
+    ShowThemeView(masterName:"Master Player", words: gameCards[0].words, actualWordIndex:  1)
 }

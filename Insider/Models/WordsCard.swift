@@ -13,5 +13,4 @@ struct WordsCard: Identifiable {
   
 }
 
-let testCards = [WordsCard(words: [("Uno","/'u no/"),("Dos","/dos/"),("Tres","/tres/"),("Cuatro","/'kwa tro/"),("Cinco","/'θiŋ ko/"),("Seis","/'se js/")])]
-
+let gameCards = [WordsCard(words: [("Uno","/'u no/"),("Dos","/dos/"),("Tres","/tres/"),("Cuatro","/'kwa tro/"),("Cinco","/'θiŋ ko/"),("Seis","/'se js/")])]

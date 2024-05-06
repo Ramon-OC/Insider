@@ -9,8 +9,8 @@ import SwiftUI
 
 struct WordsCardView: View {
     
-    let words: [(String,String)]
-    let actualWordIndex: Int
+    let words: [(String,String)] = gameCards[Game.shared.wordCardIndex].words
+    let actualWordIndex: Int = Game.shared.wordIndex
 
     var body: some View {
 
@@ -60,6 +60,4 @@ struct WordsCardView: View {
     }
 }
 
-#Preview("WordsCardView01") {
-    WordsCardView(words: testCards[0].words, actualWordIndex: 4)
-}
+

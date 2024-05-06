@@ -36,7 +36,6 @@ struct RulesView: View {
                         ForEach(gameRules.indices, id: \.self) { index in
                             
                             RuleCardView(imageName: gameRules[index].image, phaseNumber: gameRules[index].phaseNumber, phaseTitle: gameRules[index].phaseTitle, intruction: gameRules[index].intruction)
-                            
                                 .frame(width: outerView.size.width, height: self.currentRuleIndex == index ?  600 : 100)
                                                         
                         }

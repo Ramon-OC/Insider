@@ -19,7 +19,7 @@ class Game {
     
     init() {
         self.wordIndex = Int.random(in: 1...5)
-        self.wordCardIndex = Int.random(in: 0..<testCards.count)
+        self.wordCardIndex = Int.random(in: 0..<gameCards.count)
     }
     
     static var shared: Game = {

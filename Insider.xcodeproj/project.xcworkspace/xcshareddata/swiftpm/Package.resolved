@@ -1,6 +1,15 @@
 {
-  "originHash" : "6ad1e0d3ae43bde33043d3286afc3d98e5be09945ac257218cb6a9dba14466c3",
+  "originHash" : "a8b612640904793bf82294d9821d8ed99aec4fe05488113cf2ee73a085c7d449",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
+        "version" : "5.9.1"
+      }
+    },
     {
       "identity" : "confettiswiftui",
       "kind" : "remoteSourceControl",
